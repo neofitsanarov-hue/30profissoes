@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gordura: Tudo o que você precisa saber sobre lipídios</title>
+    <meta name="description" content="Descubra a verdade sobre as gorduras, seus benefícios para a saúde e como incluí-las corretamente na sua alimentação.">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #4a7c59;
+            --accent: #8fb996;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%234a7c59"/><text x="50%" y="50%" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Imagem de alimentos saudáveis</text></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #666;
+        }
+        
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        .card-saturated .card-header {
+            background-color: var(--danger);
+        }
+        
+        .card-unsaturated .card-header {
+            background-color: var(--success);
+        }
+        
+        .card-trans .card-header {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Functions */
+        .functions {
+            background-color: #f1f8e9;
+        }
+        
+        .function-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .function-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .function-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        /* Myths */
+        .myths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .myth-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--danger);
+        }
+        
+        .myth-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .myth-card h3::before {
+            content: "❌";
+            margin-right: 0.5rem;
+        }
+        
+        .truth-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--success);
+        }
+        
+        .truth-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .truth-card h3::before {
+            content: "✅";
+            margin-right: 0.5rem;
+        }
+        
+        /* Tips */
+        .tips {
+            background-color: #f1f8e9;
+        }
+        
+        .tips-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .tip-number {
+            background-color: var(--accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Form */
+        .form-group {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 2.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Gordura: Verdades e Mitos</div>
+                <nav>
+                    <ul>
+                        <li><a href="#tipos">Tipos</a></li>
+                        <li><a href="#funcoes">Funções</a></li>
+                        <li><a href="#mitos">Mitos</a></li>
+                        <li><a href="#dicas">Dicas</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Gordura: O nutriente essencial que você precisa conhecer</h1>
+            <p>Descubra a verdade sobre as gorduras, seus benefícios para a saúde e como incluí-las corretamente na sua alimentação.</p>
+            <a href="#tipos" class="btn">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Tipos de Gordura -->
+    <section id="tipos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tipos de Gordura</h2>
+                <p>Conheça as diferentes categorias de lipídios e seus efeitos na saúde</p>
+            </div>
+            
+            <div class="cards">
+                <div class="card card-saturated">
+                    <div class="card-header">
+                        <h3>Gorduras Saturadas</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Encontradas principalmente em produtos de origem animal (carnes, laticínios) e alguns óleos vegetais (coco, palma).</p>
+                        <p>Consumo moderado é recomendado, pois em excesso pode aumentar o colesterol LDL ("ruim").</p>
+                    </div>
+                </div>
+                
+                <div class="card card-unsaturated">
+                    <div class="card-header">
+                        <h3>Gorduras Insaturadas</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Dividem-se em monoinsaturadas e poli-insaturadas (ômega-3 e ômega-6).</p>
+                        <p>Benéficas para a saúde cardiovascular, reduzem o colesterol LDL e aumentam o HDL ("bom").</p>
+                        <p>Fontes: azeite de oliva, abacate, nozes, peixes gordurosos.</p>
+                    </div>
+                </div>
+                
+                <div class="card card-trans">
+                    <div class="card-header">
+                        <h3>Gorduras Trans</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Gorduras artificiais criadas através da hidrogenação de óleos vegetais.</p>
+                        <p>Prejudiciais à saúde, aumentam o colesterol LDL e reduzem o HDL.</p>
+                        <p>Encontradas em alimentos processados, margarinas e frituras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funções da Gordura -->
+    <section id="funcoes" class="functions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Funções da Gordura no Organismo</h2>
+                <p>As gorduras desempenham papéis vitais para o funcionamento do corpo</p>
+            </div>
+            
+            <div class="function-list">
+                <div class="function-item">
+                    <div class="function-icon">🔋</div>
+                    <h3>Reserva de Energia</h3>
+                    <p>Fornecem 9 calorias por grama, sendo a principal reserva energética do corpo.</p>
+                </div>
+                
+                <div class="function-item">
+                    <div class="function-icon">🧠</div>
+                    <h3>Saúde Cerebral</h3>
+                    <p>Componente essencial das células cerebrais e bainha de mielina que protege os neurônios.</p>
+                </div>
+                
+                <div class="function-item">
+                    <div class="function-icon">💊</div>
+                    <h3>Absorção de Vitaminas</h3>
+                    <p>Facilitam a absorção das vitaminas lipossolúveis: A, D, E e K.</p>
+                </div>
+                
+                <div class="function-item">
+                    <div class="function-icon">🛡️</div>
+                    <h3>Proteção e Isolamento</h3>
+                    <p>Protegem órgãos vitais e ajudam a manter a temperatura corporal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mitos e Verdades -->
+    <section id="mitos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mitos e Verdades sobre a Gordura</h2>
+                <p>Desvendando equívocos comuns sobre os lipídios na alimentação</p>
+            </div>
+            
+            <div class="myths-grid">
+                <div class="myth-card">
+                    <h3>Mito: Todas as gorduras são ruins</h3>
+                    <p>As gorduras insaturadas são essenciais para a saúde. O problema está no consumo excessivo de gorduras saturadas e trans.</p>
+                </div>
+                
+                <div class="truth-card">
+                    <h3>Verdade: Dietas com zero gordura são prejudiciais</h3>
+                    <p>A eliminação completa da gordura da dieta pode causar deficiências de vitaminas e problemas hormonais.</p>
+                </div>
+                
+                <div class="myth-card">
+                    <h3>Mito: Produtos "light" são sempre mais saudáveis</h3>
+                    <p>Muitos produtos com redução de gordura compensam com adição de açúcares e outros aditivos.</p>
+                </div>
+                
+                <div class="truth-card">
+                    <h3>Verdade: O tipo de gordura importa mais que a quantidade</h3>
+                    <p>Substituir gorduras saturadas por insaturadas traz mais benefícios à saúde do que simplesmente reduzir a quantidade total.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dicas -->
+    <section id="dicas" class="tips">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dicas para uma Alimentação Saudável com Gorduras</h2>
+                <p>Como incluir gorduras benéficas na sua dieta</p>
+            </div>
+            
+            <div class="tips-list">
+                <div class="tip-item">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Prefira fontes de gordura insaturada</h3>
+                        <p>Inclua azeite de oliva, abacate, nozes, sementes e peixes gordurosos na sua alimentação.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Limite o consumo de gorduras saturadas</h3>
+                        <p>Reduza carnes vermelhas gordurosas, manteiga e queijos amarelos. Prefira cortes magros e laticínios com baixo teor de gordura.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Evite gorduras trans</h3>
+                        <p>Leia os rótulos e evite alimentos com "óleo parcialmente hidrogenado" na lista de ingredientes.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-item">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Cozinhe de forma inteligente</h3>
+                        <p>Prefira métodos como cozimento no vapor, grelhado e assado em vez de frituras. Use azeite para refogar em fogo baixo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+        <div class="container">
+            <h2>Quer saber mais sobre nutrição e saúde?</h2>
+            <p>Inscreva-se para receber nosso guia completo sobre alimentação equilibrada e receitas saudáveis.</p>
+            <form class="form-group">
+                <input type="text" class="form-input" placeholder="Seu nome" required>
+                <input type="email" class="form-input" placeholder="Seu e-mail" required>
+                <button type="submit" class="btn">Receber Guia Gratuito</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>Somos uma equipe de nutricionistas dedicados a desmistificar informações sobre alimentação e promover saúde através da educação nutricional.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#tipos">Tipos de Gordura</a></li>
+                        <li><a href="#funcoes">Funções</a></li>
+                        <li><a href="#mitos">Mitos e Verdades</a></li>
+                        <li><a href="#dicas">Dicas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li>Email: contato@nutricaosaudavel.com</li>
+                        <li>Telefone: (11) 1234-5678</li>
+                        <li>Endereço: Rua da Saúde, 123 - São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Gordura: Verdades e Mitos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission (simulado)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por se inscrever! Em breve você receberá o guia completo por e-mail.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
